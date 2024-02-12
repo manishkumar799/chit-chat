@@ -1,0 +1,11 @@
+{
+  "name": "chit-chat-backend",
+  "version": "1.0.0",
+  "description": "i will add it later",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manish Kumar Pandit <manish.kp.dev@gmail.com>",
+  "license": "MIT"
+}
