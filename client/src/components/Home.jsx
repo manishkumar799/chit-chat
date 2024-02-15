@@ -1,5 +1,8 @@
 import React from "react";
 import Card from "./Card";
+import { BsChatRightFill } from "react-icons/bs";
+import { IoCall } from "react-icons/io5";
+import { MdMail, MdGroups2 } from "react-icons/md";
 
 function Home() {
   return (
@@ -12,11 +15,25 @@ function Home() {
         <div className="flex flex-row h-[100%] gap-1">
           <div className="h-[100%] w-[20%]">
             <div className="flex justify-evenly items-center h-[10%] gap-2 bg-white">
-              <div className="bg-slate-900 w-[15%]">1</div>
-              <div className="bg-slate-900 w-[15%]">2</div>
-              <div className="bg-slate-900 w-[15%]">3</div>
-              <div className="bg-slate-900 w-[15%]">4</div>
-              <div className="bg-slate-900 w-[15%]">5</div>
+              <div className=" w-[15%]">
+                <BsChatRightFill size={20} />
+              </div>
+              <div className="w-[15%]">
+                <IoCall size={20} />
+              </div>
+              <div className="w-[15%]">
+                <MdMail size={20} />
+              </div>
+              <div className="w-[15%]">
+                <MdGroups2 size={20} />
+              </div>
+              <div className="w-[15%]">
+                <img
+                  className="h-[40px] w-[40px] rounded-full border-x-2"
+                  src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
+                  alt=""
+                />
+              </div>
             </div>
             <div className="h-[90%] bg-red-400 px-5">
               <div className="flex justify-between items-center h-[10%]">
@@ -29,11 +46,21 @@ function Home() {
                 <div>PUBLIC</div>
               </div>
               <div className="py-4">
-                <input className="w-full" type="text" placeholder="search"/>
+                <input className="w-full" type="text" placeholder="search" />
               </div>
 
-              <div>
-                <Card/>
+              <div
+                className="flex flex-col gap-2"
+                style={{
+                  maxHeight: "420px",
+                  overflowY: "auto",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
+              >
+                {Array.from({ length: 10 }, (_, i) => (
+                  <Card key={i} />
+                ))}
               </div>
             </div>
           </div>
