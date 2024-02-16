@@ -3,6 +3,7 @@ import Card from "./Card";
 import { BsChatRightFill } from "react-icons/bs";
 import { IoCall } from "react-icons/io5";
 import { MdMail, MdGroups2 } from "react-icons/md";
+import Suggestions from "./Suggestions";
 
 function Home() {
   return (
@@ -65,7 +66,27 @@ function Home() {
             </div>
           </div>
           <div className="bg-slate-500 h-[100%] w-[60%]">2</div>
-          <div className="bg-slate-500 h-[100%] w-[20%]">3</div>
+          <div className="bg-slate-500 h-[100%] w-[20%]">
+            <div className="h-[55%] ">
+              <h1 className="text-3xl font-bold">Notificatios</h1>
+            </div>
+            <div className="h-[45%]">
+              <h1 className="text-3xl font-bold">Suggestions</h1>
+              <div
+                className="flex flex-col gap-2"
+                style={{
+                  maxHeight: "200px",
+                  overflowY: "auto",
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
+              >
+                {Array.from({ length: 10 }, (_, i) => (
+                  <Suggestions key={i} />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
