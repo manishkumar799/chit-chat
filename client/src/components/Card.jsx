@@ -2,7 +2,7 @@ import React from "react";
 
 function Card() {
   return (
-    <div className="bg-blue-500 h-[60px] px-2 flex items-center gap-2">
+    <div className="h-[60px] px-2 flex items-center gap-2 border-2">
       <div className="flex-start">
         <img
           className="h-[50px] w-[50px] rounded-full border-x-2"
