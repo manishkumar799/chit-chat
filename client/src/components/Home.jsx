@@ -10,15 +10,15 @@ import { CiCirclePlus } from "react-icons/ci";
 
 function Home() {
   return (
-    <div>
+    <div className="h-[100vh]">
       <div className="flex justify-between items-center h-[60px] bg-white px-10">
         <div className="text-xl font-bold">CHAT ONN</div>
         <div className="text-slate-500">Create memorable talks</div>
       </div>
-      <div className="h-[90vh] mt-1">
-        <div className="flex flex-row h-[100%] gap-1">
-          <div className="h-[100%] w-[20%]">
-            <div className="flex justify-evenly items-center h-[10%] gap-2 bg-white px-4">
+      <div className=" mt-1">
+        <div className="flex flex-row  gap-1 h-[100%]">
+          <div className="w-[20%]">
+            <div className="flex justify-evenly items-center h-[63px] gap-2 bg-white px-4">
               <div className=" w-[15%]">
                 <BsChatRightFill size={20} />
               </div>
@@ -39,8 +39,8 @@ function Home() {
                 />
               </div>
             </div>
-            <div className="h-[90%] px-5 bg-slate-500">
-              <div className="flex justify-between items-center h-[10%]">
+            <div className=" px-5 bg-slate-500">
+              <div className="flex justify-between items-center h-[10%] py-5">
                 <div className="text-3xl font-bold">Chats</div>
                 <div><CiCirclePlus size={30}/></div>
               </div>
@@ -56,22 +56,22 @@ function Home() {
               <div
                 className="flex flex-col gap-2"
                 style={{
-                  maxHeight: "420px",
+                  maxHeight: "60vh",
                   overflowY: "auto",
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
                 }}
               >
-                {Array.from({ length: 10 }, (_, i) => (
+                {Array.from({ length: 30 }, (_, i) => (
                   <Card key={i} />
                 ))}
               </div>
             </div>
           </div>
-          <div className="bg-slate-500 h-[100%] w-[60%]">
+          <div className="bg-slate-500 w-[60%] relative ">
             <Inbox />
           </div>
-          <div className="bg-slate-500 h-[100%] w-[20%]">
+          <div className="bg-slate-500  w-[20%]">
             <div className="h-[55%] px-4">
               <h1 className="text-3xl font-bold py-3">Notificatios</h1>
               <div

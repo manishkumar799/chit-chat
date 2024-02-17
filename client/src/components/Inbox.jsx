@@ -23,10 +23,10 @@ function Inbox() {
             <div><SlOptions size={30}/></div>
         </div>
       </div>
-      <div className="h-[500px]">
+      <div className="">
         
       </div>
-      <div className="h-[63px] w-full flex justify-center items-center">
+      <div className="h-[63px] w-full flex justify-center items-center absolute bottom-0">
         <input className="w-[90%] border-2" placeholder="Enter your message ..." type="text" />
       </div>
     </div>
