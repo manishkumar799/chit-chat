@@ -1,4 +1,10 @@
 body {
-  background-color: #084089;
+  background-color: #efeeee;
 }
 
+.custom-shadow{
+  -webkit-box-shadow: -1px 0px 4px 1px rgba(0,0,0,0.89);
+-moz-box-shadow: -1px 0px 4px 1px rgba(0,0,0,0.89);
+box-shadow: -1px 0px 4px 1px rgba(0,0,0,0.89);
+
+}

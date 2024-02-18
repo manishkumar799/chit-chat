@@ -2,7 +2,7 @@ import React from "react";
 
 function Suggestions() {
   return (
-    <div className="flex items-center border-2">
+    <div className="flex items-center shadowmd bg-[#efeeee] p-2">
       <div className="w-[20%] ">
         <img className="h-[50px] w-[50px] rounded-full border-x-2" src="https://cdn-icons-png.flaticon.com/512/21/21104.png" alt="" />
       </div>

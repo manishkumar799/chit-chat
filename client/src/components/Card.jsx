@@ -2,15 +2,15 @@ import React from "react";
 
 function Card() {
   return (
-    <div className="h-[60px] px-2 flex items-center gap-2 border-2">
-      <div className="flex-start">
+    <div className="h-[60px] px-2 flex items-center gap-2 shadow-md bg-[#efeeee] p-2 custom-shadow">
+      <div className="flex-start ">
         <img
           className="h-[50px] w-[50px] rounded-full border-x-2"
           src="https://cdn-icons-png.flaticon.com/512/21/21104.png"
           alt=""
         />
       </div>
-      <div className="flex">
+      <div className="flex ">
         <div>
           <div className="font-bold">Test User</div>
           <div className="text-sm">Lorem ipsum dolor sit!</div>

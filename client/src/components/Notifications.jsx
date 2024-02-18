@@ -2,7 +2,7 @@ import React from "react";
 
 function Notifications() {
   return (
-    <div className="flex items-center border-2 gap-2">
+    <div className="flex items-center shadow-d gap-2 bg-[#efeeee] p-2">
       <div className="w-[20%] ">
         <img
           className="h-[50px] w-[50px] rounded-full border-x-2"

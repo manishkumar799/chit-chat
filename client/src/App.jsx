@@ -3,7 +3,7 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <div className="bg-[#cfdced] h-[100vh]">
+    <div className="bg-[#efeeee] h-[100vh]">
       <Home />
     </div>
   );
