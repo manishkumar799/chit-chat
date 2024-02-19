@@ -36,15 +36,15 @@ function Inbox() {
           <BsEmojiSmile />
         </div>
         <input
-          type="search"
+          type="text"
           id="default-search"
-          class="block w-[80%] p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          class="block w-[80%] p-2 ps-10 text-sm text-gray-900 border border-gray-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Type a message here..."
           required
         />
       </div>
       <div className="absolute inset-y-0 end-16 flex items-center ps-3 pointer-events-none shadow-xl">
-        <BsSendFill />
+        {/* <BsSendFill /> */}
       </div>
     </div>
   );
