@@ -4,7 +4,8 @@ import { SlOptions } from "react-icons/sl";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
 import { TiAttachmentOutline } from "react-icons/ti";
 
-function Inbox() {
+function Inbox({ inboxData }) {
+  // console.log(inboxData);
   return (
     <div className="flex flex-col shadow-xl">
       <div className="px-4 flex items-center h-[63px] bg-white">
@@ -16,7 +17,7 @@ function Inbox() {
           />
         </div>
         <div className="w-[70%]">
-          <div className="font-bold text-lg">Test User</div>
+          <div className="font-bold text-lg">{inboxData?.name}</div>
           <div className="text-sm">Last seen 30 minutes ago.</div>
         </div>
         <div className="flex gap-7">
@@ -37,7 +38,7 @@ function Inbox() {
           <BsEmojiSmile size={20} />
         </div>
         <div class="absolute inset-y-0  flex items-center ps-3 start-2 top-[10px] w-[60px] h-[40px] ">
-        <TiAttachmentOutline size={30} />
+          <TiAttachmentOutline size={30} />
         </div>
         <textarea
           type="text"
@@ -47,7 +48,7 @@ function Inbox() {
           required
         />
         <div className="absolute end-6 w-[60px] h-[40px] flex items-center justify-center shadow-xl rounded-xl bg-blue-700">
-          <BsSendFill color="white" size={25}/>
+          <BsSendFill color="white" size={25} />
         </div>
       </div>
     </div>

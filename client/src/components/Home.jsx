@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
 import Menu from "./Menu";
 import Suggestions from "./Suggestions";
@@ -7,6 +7,7 @@ import Inbox from "./Inbox";
 import { CiCirclePlus } from "react-icons/ci";
 
 function Home() {
+  const [inbox, setInbox] = useState({});
   return (
     <div className="h-[100vh]">
       <div className="flex justify-between items-center h-[60px] bg-white px-10 shadow-xl">
@@ -57,11 +58,11 @@ function Home() {
                 {/* <input className="w-full" type="text" placeholder="search" /> */}
               </div>
 
-              <Card />
+              <Card setInbox={setInbox} />
             </div>
           </div>
           <div className=" w-[60%] relative ">
-            <Inbox />
+            <Inbox inboxData={inbox} />
           </div>
           <div className="w-[20%] shadow-xl">
             <div className="h-[55%] px-4">
