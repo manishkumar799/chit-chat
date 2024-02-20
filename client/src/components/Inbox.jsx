@@ -2,6 +2,7 @@ import React from "react";
 import { MdVideoCall, MdCall } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
+import { TiAttachmentOutline } from "react-icons/ti";
 
 function Inbox() {
   return (
@@ -32,19 +33,22 @@ function Inbox() {
       </div>
       <div className=""></div>
       <div className="h-[63px] w-full flex justify-center items-center absolute bottom-4">
-        <div class="absolute inset-y-0 end-28 flex items-center ps-3 pointer-events-none">
-          <BsEmojiSmile />
+        <div class="absolute inset-y-0 start-14 flex items-center">
+          <BsEmojiSmile size={20} />
         </div>
-        <input
+        <div class="absolute inset-y-0  flex items-center ps-3 start-2 top-[10px] w-[60px] h-[40px] ">
+        <TiAttachmentOutline size={30} />
+        </div>
+        <textarea
           type="text"
           id="default-search"
-          class="block w-[80%] p-2 ps-10 text-sm text-gray-900 border border-gray-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          class="block w-[80%] p-2 ps-10 pe-10 text-sm text-gray-900 border border-gray-500 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 h-10 max-h-10 min-h-10"
           placeholder="Type a message here..."
           required
         />
-      </div>
-      <div className="absolute inset-y-0 end-16 flex items-center ps-3 pointer-events-none shadow-xl">
-        {/* <BsSendFill /> */}
+        <div className="absolute end-6 w-[60px] h-[40px] flex items-center justify-center shadow-xl rounded-xl bg-blue-700">
+          <BsSendFill color="white" size={25}/>
+        </div>
       </div>
     </div>
   );
