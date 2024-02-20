@@ -102,7 +102,7 @@ function Card({ setInbox }) {
         {inbox.map((items, index) => (
           <div
             onClick={() => setInbox(items)}
-            className="h-[60px] px-2 flex flex-row items-center relative gap-2 shadow-md bg-[#efeeee] p-2 custom-shadow border-2 border-slate-300"
+            className="h-[60px] px-2 flex flex-row items-center relative gap-2 shadow-md bg-[#efeeee] p-2 custom-shadow border-2 border-slate-300 hover:cursor-pointer"
             key={index}
           >
             <div className="">

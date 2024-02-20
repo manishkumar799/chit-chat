@@ -21,14 +21,14 @@ function Home() {
             <div className="px-5">
               <div className="flex justify-between items-center h-[10%] py-5">
                 <div className="text-3xl font-bold">Chats</div>
-                <div>
+                <div className="hover:cursor-pointer">
                   <CiCirclePlus size={30} />
                 </div>
               </div>
               <div className="flex gap-4 text-sm flext-start font-bold">
-                <div>DIRECTS</div>
-                <div>GROUPS</div>
-                <div>PUBLIC</div>
+                <div className="hover:cursor-pointer">DIRECTS</div>
+                <div className="hover:cursor-pointer">GROUPS</div>
+                <div className="hover:cursor-pointer">PUBLIC</div>
               </div>
               <div className="py-4 relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
