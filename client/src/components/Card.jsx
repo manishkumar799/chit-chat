@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Card({ setInbox }) {
   const inbox = [
@@ -87,6 +87,7 @@ function Card({ setInbox }) {
       profileImgUrl: "https://example.com/profiles/avasmith.jpg",
     },
   ];
+  useEffect(()=>{setInbox(inbox[0])},[])
 
   return (
     <>
@@ -115,7 +116,6 @@ function Card({ setInbox }) {
             <div className="flex justify-between ">
               <div className="">
                 <div className="font-bold">{items.name}</div>
-                {/* <div className="text-[10px] w-[80%]">{items.msg}</div> */}
                 <div className="text-[10px] w-[80%] overflow-hidden whitespace-nowrap overflow-ellipsis">
                   {items.msg.length > 30
                     ? items.msg.slice(0, 30) + "..."
