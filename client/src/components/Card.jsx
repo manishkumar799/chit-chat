@@ -3,11 +3,23 @@ import React, { useEffect } from "react";
 function Card({ setInbox }) {
   const inbox = [
     {
-      name: "John Doe",
+      name:"John Doe",
       msg: "Hey, how's it going?",
       time: "10:30 AM",
       unread: "3",
       profileImgUrl: "https://example.com/profiles/johndoe.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Alice Smith",
@@ -15,6 +27,18 @@ function Card({ setInbox }) {
       time: "Yesterday",
       unread: "1",
       profileImgUrl: "https://example.com/profiles/alicesmith.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "David Johnson",
@@ -22,6 +46,18 @@ function Card({ setInbox }) {
       time: "Wednesday",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/davidjohnson.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Emily Brown",
@@ -29,6 +65,18 @@ function Card({ setInbox }) {
       time: "Monday",
       unread: "2",
       profileImgUrl: "https://example.com/profiles/emilybrown.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Michael Wilson",
@@ -36,6 +84,18 @@ function Card({ setInbox }) {
       time: "Feb 15",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/michaelwilson.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Sarah Taylor",
@@ -43,6 +103,18 @@ function Card({ setInbox }) {
       time: "Feb 10",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/sarahtaylor.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "James Williams",
@@ -50,6 +122,18 @@ function Card({ setInbox }) {
       time: "Feb 8",
       unread: "1",
       profileImgUrl: "https://example.com/profiles/jameswilliams.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Sophia Martinez",
@@ -57,6 +141,18 @@ function Card({ setInbox }) {
       time: "Feb 5",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/sophiamartinez.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Daniel Jones",
@@ -64,6 +160,18 @@ function Card({ setInbox }) {
       time: "Feb 3",
       unread: "3",
       profileImgUrl: "https://example.com/profiles/danieljones.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Olivia Johnson",
@@ -71,6 +179,18 @@ function Card({ setInbox }) {
       time: "Feb 1",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/oliviajohnson.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Ethan Garcia",
@@ -78,6 +198,18 @@ function Card({ setInbox }) {
       time: "Jan 28",
       unread: "0",
       profileImgUrl: "https://example.com/profiles/ethangarcia.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
     {
       name: "Ava Smith",
@@ -85,9 +217,23 @@ function Card({ setInbox }) {
       time: "Jan 25",
       unread: "2",
       profileImgUrl: "https://example.com/profiles/avasmith.jpg",
+      sms: [
+        {
+          id:1,
+          msg: "Hey, how's it going",
+          time: "10:30 AM",
+        },
+        {
+          id:2,
+          msg: "Hey, I'm fine.",
+          time: "10:31 AM",
+        },
+      ],
     },
   ];
-  useEffect(()=>{setInbox(inbox[0])},[])
+  useEffect(() => {
+    setInbox(inbox[0]);
+  }, []);
 
   return (
     <>

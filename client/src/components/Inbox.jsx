@@ -6,7 +6,7 @@ import { TiAttachmentOutline } from "react-icons/ti";
 
 function Inbox({ inboxData }) {
   const [msg, setMsg] = useState("");
-  const [allMsg, setAllMsg] = useState([]);
+  const [allMsg, setAllMsg] = useState(inboxData?.sms);
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -20,10 +20,13 @@ function Inbox({ inboxData }) {
   useEffect(() => {
     scrollToBottom();
   }, [allMsg]);
+  useEffect(() => {
+    setAllMsg(inboxData?.sms);
+  }, []);
 
   // Function to handle sending a message
   const sendMessage = () => {
-    msg != "" && setAllMsg([...allMsg, msg]);
+    msg != "" && setAllMsg([...allMsg, {id:1,msg,time:"10:52AM"}]);
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
   };
@@ -61,7 +64,7 @@ function Inbox({ inboxData }) {
         {/* Message Container */}
         <div
           ref={messageContainerRef}
-          className="absolute bottom-20 end-0 flex flex-col gap-2 px-10 w-full items-end"
+          className="absolute bottom-20 end-0 flex flex-col gap-2 px-6 w-full items-end py-1"
           style={{
             maxHeight: "70vh",
             overflowY: "auto",
@@ -69,17 +72,19 @@ function Inbox({ inboxData }) {
             msOverflowStyle: "none",
           }}
         >
-          {allMsg.map((item, index) => (
+          {allMsg?.map((item, index) => (
             <div
               key={index}
-              className="bg-blue-500 text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%]"
+              className={`${
+                item.id != 1 ? "bg-black" : "bg-slate-500"
+              } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%]`}
             >
-              {item}
+              {item.msg}
             </div>
           ))}
         </div>
         {/* Message Input */}
-        <div className="h-[63px] w-full flex justify-center items-center absolute bottom-4">
+        <div className="h-[63px] w-full flex justify-center items-center absolute bottom-3 shadow-xl border-2 border-bold border-t-[#B5C0D0]">
           <div className="absolute inset-y-0 start-14 flex items-center hover:cursor-pointer">
             <BsEmojiSmile size={20} />
           </div>
