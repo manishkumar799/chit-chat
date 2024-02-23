@@ -6,9 +6,10 @@ import { TiAttachmentOutline } from "react-icons/ti";
 
 function Inbox({ inboxData }) {
   const [msg, setMsg] = useState("");
-  const [allMsg, setAllMsg] = useState(inboxData?.sms);
+  const [allMsg, setAllMsg] = useState();
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
+  const [showTime, setShowTime] = useState(false);
 
   // Function to scroll down to the end of the message container
   const scrollToBottom = () => {
@@ -20,13 +21,14 @@ function Inbox({ inboxData }) {
   useEffect(() => {
     scrollToBottom();
   }, [allMsg]);
+
   useEffect(() => {
     setAllMsg(inboxData?.sms);
-  }, []);
+  }, [inboxData]);
 
   // Function to handle sending a message
   const sendMessage = () => {
-    msg != "" && setAllMsg([...allMsg, {id:1,msg,time:"10:52AM"}]);
+    msg != "" && setAllMsg([...allMsg, { id: 2, msg, time: "10:52AM" }]);
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
   };
@@ -75,11 +77,19 @@ function Inbox({ inboxData }) {
           {allMsg?.map((item, index) => (
             <div
               key={index}
+              onClick={() => setShowTime(!showTime)}
               className={`${
                 item.id != 2 ? "bg-slate-500 self-start" : "bg-black self-end"
               } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%] `}
             >
-              {item.msg}
+              {item.msg}{" "}
+              <span
+                className={`text-[10px]  justify-end ${
+                  showTime ? "flex" : "hidden"
+                }`}
+              >
+                {item.time}
+              </span>
             </div>
           ))}
         </div>
