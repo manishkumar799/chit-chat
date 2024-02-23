@@ -76,8 +76,8 @@ function Inbox({ inboxData }) {
             <div
               key={index}
               className={`${
-                item.id != 1 ? "bg-black" : "bg-slate-500"
-              } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%]`}
+                item.id != 2 ? "bg-slate-500 self-start" : "bg-black self-end"
+              } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%] `}
             >
               {item.msg}
             </div>

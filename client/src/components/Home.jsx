@@ -51,7 +51,7 @@ function Home() {
                 <input
                   type=""
                   id="default-search"
-                  class="block w-full h-8 ps-10 text-sm text-gray-900 border border-gray-400 rounded-lg bg-gray-50"
+                  class="block w-full h-8 ps-10 text-sm text-gray-900 border border-gray-400 rounded-lg bg-gray-50 shadow-xl"
                   placeholder="Search friends, groups..."
                   required
                 />
