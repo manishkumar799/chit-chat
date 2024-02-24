@@ -4,7 +4,7 @@ import { SlOptions } from "react-icons/sl";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
 import { TiAttachmentOutline } from "react-icons/ti";
 
-function Inbox({ inboxData }) {
+function Inbox({ inboxData, setInbox }) {
   const [msg, setMsg] = useState("");
   const [allMsg, setAllMsg] = useState();
   const messageContainerRef = useRef(null);
@@ -20,17 +20,30 @@ function Inbox({ inboxData }) {
   // Scroll to the bottom whenever allMsg updates
   useEffect(() => {
     scrollToBottom();
+    // setInbox({ ...inboxData, sms: allMsg });
   }, [allMsg]);
 
   useEffect(() => {
     setAllMsg(inboxData?.sms);
   }, [inboxData]);
 
+  useEffect(() => {
+    // setInbox({ ...inboxData, sms: allMsg });
+  }, []);
+
   // Function to handle sending a message
   const sendMessage = () => {
     msg != "" && setAllMsg([...allMsg, { id: 2, msg, time: "10:52AM" }]);
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
+    // console.log({
+    //   ...inboxData,
+    //   sms: inboxData.sms.push({ id: 2, msg, time: "10:52AM" }),
+    // });
+    let msmsm = {
+      ...inboxData,
+      sms: inboxData.sms.push({ id: 2, msg, time: "10:52AM" }),
+    }
   };
 
   return (
@@ -48,7 +61,7 @@ function Inbox({ inboxData }) {
           </div>
           <div className="w-[70%]">
             <div className="font-bold text-lg">{inboxData?.name}</div>
-            <div className="text-sm">Last seen 30 minutes ago.</div>
+            <div className="text-[12px]">Last seen 30 minutes ago.</div>
           </div>
           {/* Call and Options Icons */}
           <div className="flex gap-7">

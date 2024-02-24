@@ -255,9 +255,11 @@ function Home() {
     conversation.forEach((element, index) => {
       if (element.c_id === inbox?.c_id) {
         abc[index] = inbox;
+        // console.log(inbox);
       }
       setConversation(abc);
     });
+    // console.log(conversation);
   }, [inbox]);
   return (
     <div className="h-[100vh]">
@@ -318,7 +320,7 @@ function Home() {
                 Please select chat to start conversation...
               </div>
             ) : (
-              <Inbox inboxData={inbox} />
+              <Inbox inboxData={inbox} setInbox={setInbox} />
             )}
           </div>
           <div className="w-[20%] shadow-xl">
