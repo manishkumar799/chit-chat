@@ -5,11 +5,16 @@ import Suggestions from "./Suggestions";
 import Notifications from "./Notifications";
 import Inbox from "./Inbox";
 import { CiCirclePlus } from "react-icons/ci";
+import io from "socket.io-client";
+
+const socket = io("http://localhost:3000", { transports: ["websocket"] });
+
 
 function Home() {
   const [inbox, setInbox] = useState();
   const [conversation, setConversation] = useState([
     {
+      s_id:'John',
       c_id: 1,
       name: "John Doe",
       msg: "Hey, how's it going?",
@@ -30,6 +35,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Alice',
       c_id: 2,
       name: "Alice Smith",
       msg: "Did you finish the project?",
@@ -50,6 +56,7 @@ function Home() {
       ],
     },
     {
+      s_id:'David',
       c_id: 3,
       name: "David Johnson",
       msg: "Let's catch up this weekend!",
@@ -70,6 +77,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Emily',
       c_id: 4,
       name: "Emily Brown",
       msg: "Can you send me the details?",
@@ -90,6 +98,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Michael',
       c_id: 5,
       name: "Michael Wilson",
       msg: "Thanks for your help!",
@@ -110,6 +119,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Sarah',
       c_id: 6,
       name: "Sarah Taylor",
       msg: "Let's grab lunch tomorrow.",
@@ -130,6 +140,7 @@ function Home() {
       ],
     },
     {
+      s_id:'James',
       c_id: 7,
       name: "James Williams",
       msg: "Are you free tonight?",
@@ -150,6 +161,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Sophia',
       c_id: 8,
       name: "Sophia Martinez",
       msg: "I have some exciting news!",
@@ -170,6 +182,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Daniel',
       c_id: 9,
       name: "Daniel Jones",
       msg: "Let's plan our trip.",
@@ -190,6 +203,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Olivia',
       c_id: 10,
       name: "Olivia Johnson",
       msg: "Happy Birthday!",
@@ -210,6 +224,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Ethan',
       c_id: 11,
       name: "Ethan Garcia",
       msg: "What's your opinion on the new movie?",
@@ -230,6 +245,7 @@ function Home() {
       ],
     },
     {
+      s_id:'Ava',
       c_id: 12,
       name: "Ava Smith",
       msg: "Can you help me with this issue?",
@@ -250,17 +266,7 @@ function Home() {
       ],
     },
   ]);
-  useEffect(() => {
-    let abc = conversation;
-    conversation.forEach((element, index) => {
-      if (element.c_id === inbox?.c_id) {
-        abc[index] = inbox;
-        // console.log(inbox);
-      }
-      setConversation(abc);
-    });
-    // console.log(conversation);
-  }, [inbox]);
+
   return (
     <div className="h-[100vh]">
       <div className="flex justify-between items-center h-[60px] bg-white px-10 shadow-xl">
@@ -320,7 +326,7 @@ function Home() {
                 Please select chat to start conversation...
               </div>
             ) : (
-              <Inbox inboxData={inbox} setInbox={setInbox} />
+              <Inbox inboxData={inbox} setInbox={setInbox} socket={socket} />
             )}
           </div>
           <div className="w-[20%] shadow-xl">

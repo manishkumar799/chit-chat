@@ -23,13 +23,19 @@ const io = new Server(server);
 //     console.log(msg);
 //   });
 // });
+let msg = ""
 
 io.on('connection', socket => {
   console.log('a user connected');
 
-  socket.on('message', message => {
-      console.log('message:', message);
-      io.emit('message', message);
+  socket.on('John', message => {
+      console.log('John:', message);
+      
+      io.emit('Alice', message);
+  });
+  socket.on('Alice', message => {
+      console.log('Alice:', message);
+      io.emit('John', message);
   });
 
   socket.on('disconnect', () => {

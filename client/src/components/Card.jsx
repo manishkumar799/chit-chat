@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 
 function Card({ setInbox, conversation }) {
-  useEffect(() => {
-    // setInbox(conversation[0]);
-  }, []);
 
   return (
     <>

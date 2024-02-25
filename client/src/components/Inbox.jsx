@@ -4,9 +4,9 @@ import { SlOptions } from "react-icons/sl";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
 import { TiAttachmentOutline } from "react-icons/ti";
 
-function Inbox({ inboxData, setInbox }) {
+function Inbox({ inboxData, setInbox,socket }) {
   const [msg, setMsg] = useState("");
-  const [allMsg, setAllMsg] = useState();
+  const [allMsg, setAllMsg] = useState(inboxData?.sms);
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
   const [showTime, setShowTime] = useState(false);
@@ -27,24 +27,29 @@ function Inbox({ inboxData, setInbox }) {
     setAllMsg(inboxData?.sms);
   }, [inboxData]);
 
-  useEffect(() => {
-    // setInbox({ ...inboxData, sms: allMsg });
-  }, []);
-
   // Function to handle sending a message
   const sendMessage = () => {
-    msg != "" && setAllMsg([...allMsg, { id: 2, msg, time: "10:52AM" }]);
+    msg != "" && setAllMsg([...allMsg, { id: inboxData.c_id, msg, time: Date.now() }]);
+    socket.emit(inboxData.s_id, { id: inboxData.c_id, msg, time: Date.now() });
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
-    // console.log({
-    //   ...inboxData,
-    //   sms: inboxData.sms.push({ id: 2, msg, time: "10:52AM" }),
-    // });
-    let msmsm = {
-      ...inboxData,
-      sms: inboxData.sms.push({ id: 2, msg, time: "10:52AM" }),
-    }
+    // inboxData.sms = allMsg;
+    // inboxData.sms.push({ id: 2, msg, time: "10:52AM" })
   };
+  // useEffect(() => {
+  //   socket.on("message", (message) => {
+  //     setAllMsg([...allMsg, message]);
+  //   });
+  // }, [messages]);
+
+  useEffect(() => {
+    inboxData.sms = allMsg;
+    setInbox(inboxData);
+    socket.on(inboxData.s_id, (message) => {
+      console.log(message)
+      setAllMsg([...allMsg, message]);
+    });
+  }, [allMsg]);
 
   return (
     <>
@@ -92,7 +97,7 @@ function Inbox({ inboxData, setInbox }) {
               key={index}
               onClick={() => setShowTime(!showTime)}
               className={`${
-                item.id != 2 ? "bg-slate-500 self-start" : "bg-black self-end"
+                item.id != inboxData.c_id ? "bg-slate-500 self-start" : "bg-black self-end"
               } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%] `}
             >
               {item.msg}{" "}
