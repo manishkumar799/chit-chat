@@ -10,6 +10,7 @@ function Inbox({ inboxData, setInbox,socket }) {
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
   const [showTime, setShowTime] = useState(false);
+  socket.emit('John-Alice', inboxData.c_id);
 
   // Function to scroll down to the end of the message container
   const scrollToBottom = () => {

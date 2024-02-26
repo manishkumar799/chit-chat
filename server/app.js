@@ -23,23 +23,27 @@ const io = new Server(server);
 //     console.log(msg);
 //   });
 // });
-let msg = ""
+let msg = "";
 
-io.on('connection', socket => {
-  console.log('a user connected');
+io.on("connection", (socket) => {
+  console.log("a user connected");
 
-  socket.on('John', message => {
-      console.log('John:', message);
-      
-      io.emit('Alice', message);
-  });
-  socket.on('Alice', message => {
-      console.log('Alice:', message);
-      io.emit('John', message);
-  });
+  // socket.on('John', message => {
+  //     console.log('John:', message);
 
-  socket.on('disconnect', () => {
-      console.log('user disconnected');
+  //     io.emit('Alice', message);
+  // });
+  // socket.on('Alice', message => {
+  //     console.log('Alice:', message);
+  //     io.emit('John', message);
+  // });
+
+  socket.join("John-Alice");
+  socket.to("John-Alice").emit("Alice");
+  socket.to("John-Alice").emit("John");
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
   });
 });
 
@@ -48,11 +52,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors({
-  origin:["http://localhost:5173", "http://localhost:3000","*"],
-  methods:"GET,POST,PUT,DELETE",
-  credentials:true
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "http://localhost:3000", "*"],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
   { flags: "a" }
@@ -69,7 +75,9 @@ app.set(express.json());
 
 async function connectToDatabase() {
   try {
-    await mongoose.connect(`mongodb://${config.database.host}:${config.database.port}/${config.database.name}`);
+    await mongoose.connect(
+      `mongodb://${config.database.host}:${config.database.port}/${config.database.name}`
+    );
     console.log("Mongoose connected to database");
   } catch (error) {
     console.error("Mongoose connection error: " + error);
@@ -88,7 +96,7 @@ app.use("/api", routes);
 // app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 mongoose.connection.on("connected", () => {
-    // console.log("Mongoose connected to " + uri);
+  // console.log("Mongoose connected to " + uri);
 
   const PORT = process.env.PORT || 3000;
   server.listen(PORT, () => {
