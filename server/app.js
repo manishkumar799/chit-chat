@@ -27,20 +27,31 @@ let msg = "";
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+  // socket.join("John-Alice");
 
-  // socket.on('John', message => {
+  socket.on("Join", () => {
+    socket.join("John-Alice");
+    // io.to("John-Alice").emit("John-Alice", roomName);
+    // io.to("John-Alice").emit("John-Alice", roomName.msg);
+  });
+
+  socket.on("Alice", (msg) => {
+    socket.to("John-Alice").emit("John", msg);
+  });
+  socket.on("John", (msg) => {
+    socket.to("John-Alice").emit("Alice", msg);
+  });
+
+  // socket.on('John-Alice', message => {
   //     console.log('John:', message);
 
-  //     io.emit('Alice', message);
+  //     io.to("John-Alice").emit('Alice', message);
+  //     io.to("John-Alice").emit('John', message);
   // });
   // socket.on('Alice', message => {
   //     console.log('Alice:', message);
-  //     io.emit('John', message);
+  //     io.to("John-Alice").emit('John', message);
   // });
-
-  socket.join("John-Alice");
-  socket.to("John-Alice").emit("Alice");
-  socket.to("John-Alice").emit("John");
 
   socket.on("disconnect", () => {
     console.log("user disconnected");

@@ -4,13 +4,14 @@ import { SlOptions } from "react-icons/sl";
 import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
 import { TiAttachmentOutline } from "react-icons/ti";
 
-function Inbox({ inboxData, setInbox,socket }) {
+function Inbox({ inboxData, setInbox, socket }) {
   const [msg, setMsg] = useState("");
   const [allMsg, setAllMsg] = useState(inboxData?.sms);
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
   const [showTime, setShowTime] = useState(false);
-  socket.emit('John-Alice', inboxData.c_id);
+  // socket.emit("John-Alice", inboxData.s_id);
+ 
 
   // Function to scroll down to the end of the message container
   const scrollToBottom = () => {
@@ -30,7 +31,8 @@ function Inbox({ inboxData, setInbox,socket }) {
 
   // Function to handle sending a message
   const sendMessage = () => {
-    msg != "" && setAllMsg([...allMsg, { id: inboxData.c_id, msg, time: Date.now() }]);
+    msg != "" &&
+      setAllMsg([...allMsg, { id: inboxData.c_id, msg, time: Date.now() }]);
     socket.emit(inboxData.s_id, { id: inboxData.c_id, msg, time: Date.now() });
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
@@ -47,7 +49,7 @@ function Inbox({ inboxData, setInbox,socket }) {
     inboxData.sms = allMsg;
     setInbox(inboxData);
     socket.on(inboxData.s_id, (message) => {
-      console.log(message)
+      console.log(message);
       setAllMsg([...allMsg, message]);
     });
   }, [allMsg]);
@@ -98,7 +100,9 @@ function Inbox({ inboxData, setInbox,socket }) {
               key={index}
               onClick={() => setShowTime(!showTime)}
               className={`${
-                item.id != inboxData.c_id ? "bg-slate-500 self-start" : "bg-black self-end"
+                item.id != inboxData.c_id
+                  ? "bg-slate-500 self-start"
+                  : "bg-black self-end"
               } text-white px-5 py-2 rounded-lg inline-block min-w-[50px] max-w-[80%] `}
             >
               {item.msg}{" "}

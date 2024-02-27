@@ -8,6 +8,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import io from "socket.io-client";
 
 const socket = io("http://localhost:3000", { transports: ["websocket"] });
+socket.emit("Join");
 
 
 
@@ -24,12 +25,12 @@ function Home() {
       profileImgUrl: "https://example.com/profiles/johndoe.jpg",
       sms: [
         {
-          id: 1,
+          id: 2,
           msg: "Hey, how's it going",
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 1,
           msg: "Hey, I'm fine John.",
           time: "10:31 AM",
         },
@@ -71,7 +72,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 3,
           msg: "Hey, I'm fine David.",
           time: "10:31 AM",
         },
@@ -92,7 +93,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 4,
           msg: "Hey, I'm fine. Emiliy",
           time: "10:31 AM",
         },
@@ -113,7 +114,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 5,
           msg: "Hey, I'm fine.Michael",
           time: "10:31 AM",
         },
@@ -134,7 +135,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 6,
           msg: "Hey, I'm fine Sarah.",
           time: "10:31 AM",
         },
@@ -155,7 +156,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 7,
           msg: "Hey, I'm fine James.",
           time: "10:31 AM",
         },
@@ -176,7 +177,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 8,
           msg: "Hey, I'm fine Sophia.",
           time: "10:31 AM",
         },
@@ -197,7 +198,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 9,
           msg: "Hey, I'm fine Daniel.",
           time: "10:31 AM",
         },
@@ -218,7 +219,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 10,
           msg: "Hey, I'm fine Olivia.",
           time: "10:31 AM",
         },
@@ -234,7 +235,7 @@ function Home() {
       profileImgUrl: "https://example.com/profiles/ethangarcia.jpg",
       sms: [
         {
-          id: 1,
+          id: 11,
           msg: "Hey, how's it going",
           time: "10:30 AM",
         },
@@ -260,7 +261,7 @@ function Home() {
           time: "10:30 AM",
         },
         {
-          id: 2,
+          id: 12,
           msg: "Hey, I'm fine Ava.",
           time: "10:31 AM",
         },
