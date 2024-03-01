@@ -5,13 +5,14 @@ import { BsEmojiSmile, BsSendFill } from "react-icons/bs";
 import { TiAttachmentOutline } from "react-icons/ti";
 
 function Inbox({ inboxData, setInbox, socket }) {
+  socket.emit("Join");
+
   const [msg, setMsg] = useState("");
   const [allMsg, setAllMsg] = useState(inboxData?.sms);
   const messageContainerRef = useRef(null);
   const textareaRef = useRef(null);
   const [showTime, setShowTime] = useState(false);
   // socket.emit("John-Alice", inboxData.s_id);
- 
 
   // Function to scroll down to the end of the message container
   const scrollToBottom = () => {
@@ -22,7 +23,6 @@ function Inbox({ inboxData, setInbox, socket }) {
   // Scroll to the bottom whenever allMsg updates
   useEffect(() => {
     scrollToBottom();
-    // setInbox({ ...inboxData, sms: allMsg });
   }, [allMsg]);
 
   useEffect(() => {
@@ -36,23 +36,26 @@ function Inbox({ inboxData, setInbox, socket }) {
     socket.emit(inboxData.s_id, { id: inboxData.c_id, msg, time: Date.now() });
     setMsg(""); // Clear the message input
     textareaRef.current.value = ""; // Clear the textarea
-    // inboxData.sms = allMsg;
-    // inboxData.sms.push({ id: 2, msg, time: "10:52AM" })
   };
-  // useEffect(() => {
-  //   socket.on("message", (message) => {
-  //     setAllMsg([...allMsg, message]);
-  //   });
-  // }, [messages]);
-
   useEffect(() => {
     inboxData.sms = allMsg;
     setInbox(inboxData);
+    // socket.on(inboxData.s_id, (message) => {
+    //   console.log(inboxData.s_id, "sdssss");
+    //   console.log(message);
+    //   setAllMsg([...allMsg, message]);
+    // });
+
+    console.log(inboxData);
+  }, [allMsg]);
+
+  useEffect(() => {
     socket.on(inboxData.s_id, (message) => {
+      console.log(inboxData.s_id, "sdssss");
       console.log(message);
       setAllMsg([...allMsg, message]);
     });
-  }, [allMsg]);
+  }, []);
 
   return (
     <>

@@ -26,7 +26,7 @@ const io = new Server(server);
 let msg = "";
 
 io.on("connection", (socket) => {
-  console.log("a user connected");
+  console.log("a user connected",socket.id);
   // socket.join("John-Alice");
 
   socket.on("Join", () => {
@@ -36,9 +36,11 @@ io.on("connection", (socket) => {
   });
 
   socket.on("Alice", (msg) => {
+    console.log(msg)
     socket.to("John-Alice").emit("John", msg);
   });
   socket.on("John", (msg) => {
+    console.log(msg)
     socket.to("John-Alice").emit("Alice", msg);
   });
 
