@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 function Card({ setInbox, conversation }) {
 
+  
   return (
     <>
       <div
@@ -15,7 +16,10 @@ function Card({ setInbox, conversation }) {
       >
         {conversation.map((items, index) => (
           <div
-            onClick={() => setInbox(items)}
+            onClick={() => {
+              setInbox(items);
+              console.log(items);
+            }}
             className="h-[60px] px-2 flex flex-row items-center relative gap-2 shadow-md bg-[#efeeee] p-2 custom-shadow border-2 border-slate-300 hover:cursor-pointer"
             key={index}
           >

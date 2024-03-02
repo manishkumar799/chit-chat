@@ -35,14 +35,15 @@ io.on("connection", (socket) => {
     // io.to("John-Alice").emit("John-Alice", roomName.msg);
   });
 
-  socket.on("Alice", (msg) => {
-    console.log(msg)
-    socket.to("John-Alice").emit("John", msg);
-  });
-  socket.on("John", (msg) => {
-    console.log(msg)
-    socket.to("John-Alice").emit("Alice", msg);
-  });
+  // socket.on("Alice", (msg) => {
+  //   console.log(msg)
+  //   socket.to("John-Alice").emit("John", msg);
+  // });
+  // socket.on("John", (msg) => {
+  //   console.log(msg)
+  //   socket.to("John-Alice").emit("Alice", msg);
+  // });
+  socket.leave('John-Alice');
 
   // socket.on('John-Alice', message => {
   //     console.log('John:', message);

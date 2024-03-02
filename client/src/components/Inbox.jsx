@@ -40,12 +40,6 @@ function Inbox({ inboxData, setInbox, socket }) {
   useEffect(() => {
     inboxData.sms = allMsg;
     setInbox(inboxData);
-    // socket.on(inboxData.s_id, (message) => {
-    //   console.log(inboxData.s_id, "sdssss");
-    //   console.log(message);
-    //   setAllMsg([...allMsg, message]);
-    // });
-
     console.log(inboxData);
   }, [allMsg]);
 

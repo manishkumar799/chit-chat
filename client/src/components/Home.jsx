@@ -7,16 +7,17 @@ import Inbox from "./Inbox";
 import { CiCirclePlus } from "react-icons/ci";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:3000", { transports: ["websocket"] });
+const socket = io("http://localhost:3000", {
+  transports: ["websocket"],
+  autoConnect: false,
+});
 // socket.emit("Join");
-
-
 
 function Home() {
   const [inbox, setInbox] = useState();
   const [conversation, setConversation] = useState([
     {
-      s_id:'John',
+      s_id: "John",
       c_id: 1,
       name: "John Doe",
       msg: "Hey, how's it going?",
@@ -37,7 +38,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Alice',
+      s_id: "Alice",
       c_id: 2,
       name: "Alice Smith",
       msg: "Did you finish the project?",
@@ -58,7 +59,7 @@ function Home() {
       ],
     },
     {
-      s_id:'David',
+      s_id: "David",
       c_id: 3,
       name: "David Johnson",
       msg: "Let's catch up this weekend!",
@@ -79,7 +80,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Emily',
+      s_id: "Emily",
       c_id: 4,
       name: "Emily Brown",
       msg: "Can you send me the details?",
@@ -100,7 +101,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Michael',
+      s_id: "Michael",
       c_id: 5,
       name: "Michael Wilson",
       msg: "Thanks for your help!",
@@ -121,7 +122,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Sarah',
+      s_id: "Sarah",
       c_id: 6,
       name: "Sarah Taylor",
       msg: "Let's grab lunch tomorrow.",
@@ -142,7 +143,7 @@ function Home() {
       ],
     },
     {
-      s_id:'James',
+      s_id: "James",
       c_id: 7,
       name: "James Williams",
       msg: "Are you free tonight?",
@@ -163,7 +164,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Sophia',
+      s_id: "Sophia",
       c_id: 8,
       name: "Sophia Martinez",
       msg: "I have some exciting news!",
@@ -184,7 +185,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Daniel',
+      s_id: "Daniel",
       c_id: 9,
       name: "Daniel Jones",
       msg: "Let's plan our trip.",
@@ -205,7 +206,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Olivia',
+      s_id: "Olivia",
       c_id: 10,
       name: "Olivia Johnson",
       msg: "Happy Birthday!",
@@ -226,7 +227,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Ethan',
+      s_id: "Ethan",
       c_id: 11,
       name: "Ethan Garcia",
       msg: "What's your opinion on the new movie?",
@@ -247,7 +248,7 @@ function Home() {
       ],
     },
     {
-      s_id:'Ava',
+      s_id: "Ava",
       c_id: 12,
       name: "Ava Smith",
       msg: "Can you help me with this issue?",
